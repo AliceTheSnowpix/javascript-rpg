@@ -20,13 +20,13 @@ export default class Engine {
         //ToDo Do updates here
         
 
-        ctx.fillStyle = "#303030";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.ctx.fillStyle = "#303030";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         //ToDo Do drawing here
 
 
         this.lastTime = time;
-        window.requestAnimationFrame(loop);
+        window.requestAnimationFrame(this.loop.bind(this));
     }
 }
