@@ -1,3 +1,5 @@
+import GameObject from "./gameobject";
+
 export default class Engine {
     constructor() {
         document.body.style.margin = "0px";
@@ -10,7 +12,18 @@ export default class Engine {
         this.ctx = this.canvas.getContext("2d");
 
         this.lastTime = new Date().getTime();
+
+        this.objs = [];
+
         window.requestAnimationFrame(this.loop.bind(this));
+    }
+
+    addObject(obj) {
+        if(obj instanceof GameObject) {
+            this.objs.push(obj);
+        } else {
+            console.error("Invalid Object Added. Not Game Object")
+        }
     }
 
     loop() {
@@ -18,13 +31,15 @@ export default class Engine {
         let dt = (time - this.lastTime) / 1000;
 
         //ToDo Do updates here
-        
 
         this.ctx.fillStyle = "#303030";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         //ToDo Do drawing here
 
+        this.objs.forEach(obj => {
+            obj.draw(this.ctx);
+        });
 
         this.lastTime = time;
         window.requestAnimationFrame(this.loop.bind(this));
