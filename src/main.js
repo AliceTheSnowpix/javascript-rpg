@@ -1,22 +1,32 @@
 import Engine from "./engine";
-import GameObject from "./gameobject";
-import Renderable from "./renderable";
-import playerIMG from "./images/player.png"
+import Player from "./player";
 
 let engine = new Engine();
 
-let testObj1 = new GameObject();
-testObj1.position = [100, 100];
+let player = new Player(50, 50);
 
-testObj1.addChild(new Renderable(playerIMG, 1, 7, 9, 4, 10));
-engine.addObject(testObj1);
+engine.addObject(player);
 engine.update = (dt) => {
-    if(engine.input.isKeyDown("KeyW") || engine.input.isKeyDown("ArrowUp") || engine.input.isKeyDown("Numpad8"))
-        testObj1.translate(0, -100 * dt);
-    if(engine.input.isKeyDown("KeyS") || engine.input.isKeyDown("ArrowDown") || engine.input.isKeyDown("Numpad2"))
-        testObj1.translate(0, 100 * dt);
-    if(engine.input.isKeyDown("KeyA") || engine.input.isKeyDown("ArrowLeft") || engine.input.isKeyDown("Numpad4"))
-        testObj1.translate(-100 * dt, 0);
-    if(engine.input.isKeyDown("KeyD") || engine.input.isKeyDown("ArrowRight") || engine.input.isKeyDown("Numpad6"))
-        testObj1.translate(100 * dt, 0);
+    if(engine.input.isKeyDown("KeyW") || engine.input.isKeyDown("ArrowUp") || engine.input.isKeyDown("Numpad8")) {
+        player.translate(0, -100 * dt);
+        player.facing = 1;
+    }
+    if(engine.input.isKeyDown("KeyS") || engine.input.isKeyDown("ArrowDown") || engine.input.isKeyDown("Numpad2")) {
+        player.translate(0, 100 * dt);
+        player.facing = 3;
+    }
+    if(engine.input.isKeyDown("KeyA") || engine.input.isKeyDown("ArrowLeft") || engine.input.isKeyDown("Numpad4")) {
+        player.translate(-100 * dt, 0);
+        player.facing = 4;
+    }
+    if(engine.input.isKeyDown("KeyD") || engine.input.isKeyDown("ArrowRight") || engine.input.isKeyDown("Numpad6")) {
+        player.translate(100 * dt, 0);
+        player.facing = 2;
+    }
+    if(!engine.input.isKeyDown("KeyW") && !engine.input.isKeyDown("ArrowUp") && !engine.input.isKeyDown("Numpad8") && 
+        !engine.input.isKeyDown("KeyS") && !engine.input.isKeyDown("ArrowDown") && !engine.input.isKeyDown("Numpad2") && 
+        !engine.input.isKeyDown("KeyA") && !engine.input.isKeyDown("ArrowLeft") && !engine.input.isKeyDown("Numpad4") && 
+        !engine.input.isKeyDown("KeyD") && !engine.input.isKeyDown("ArrowRight") && !engine.input.isKeyDown("Numpad6")) {
+        player.facing = 0
+    }
 };
