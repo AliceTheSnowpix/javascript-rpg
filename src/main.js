@@ -8,5 +8,5 @@ let engine = new Engine();
 let testObj1 = new GameObject();
 testObj1.position = [100, 100];
 
-testObj1.addChild(new Renderable(playerIMG))
+testObj1.addChild(new Renderable(playerIMG, 0, 9, 9, 4, 1))
 engine.addObject(testObj1);
