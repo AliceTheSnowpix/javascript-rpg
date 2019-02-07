@@ -1,3 +1,5 @@
+import Renderable from "./renderable";
+
 export default class GameObject {
     constructor() {
         this.position = [0,0];
@@ -12,11 +14,10 @@ export default class GameObject {
         ctx.save();
         ctx.translate(this.position[0], this.position[1]);
 
-        ctx.fillStyle = "red";
-        ctx.fillRect(0, 0, 50, 50);
-
         this.children.forEach(child => {
             if(child instanceof GameObject)
+                child.draw(ctx);
+            if(child instanceof Renderable)
                 child.draw(ctx);
         });
 

@@ -15,8 +15,5 @@
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.6"
-  },
-  "devDependencies": {
-    "img-loader": "^3.0.1"
   }
 }

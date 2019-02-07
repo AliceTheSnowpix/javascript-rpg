@@ -106,7 +106,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameObject; });\nclass GameObject {\r\n    constructor() {\r\n        this.position = [0,0];\r\n        this.children = [];\r\n    }\r\n\r\n    draw(ctx) {\r\n        ctx.save();\r\n        ctx.translate(this.position[0], this.position[1]);\r\n\r\n        ctx.fillstyle = \"red\";\r\n        ctx.fillRect(0,0,50,50);\r\n\r\n        ctx.restore();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/gameobject.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameObject; });\n/* harmony import */ var _renderable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderable */ \"./src/renderable.js\");\n\r\n\r\nclass GameObject {\r\n    constructor() {\r\n        this.position = [0,0];\r\n        this.children = [];\r\n    }\r\n\r\n    addChild(child) {\r\n        this.children.push(child);\r\n    }\r\n\r\n    draw(ctx) {\r\n        ctx.save();\r\n        ctx.translate(this.position[0], this.position[1]);\r\n\r\n        ctx.fillStyle = \"red\";\r\n        ctx.fillRect(0, 0, 50, 50);\r\n\r\n        this.children.forEach(child => {\r\n            if(child instanceof GameObject)\r\n                child.draw(ctx);\r\n            if(child instanceof _renderable__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\r\n                child.draw(ctx);\r\n        });\r\n\r\n        ctx.restore();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/gameobject.js?");
+
+/***/ }),
+
+/***/ "./src/images/missing.png":
+/*!********************************!*\
+  !*** ./src/images/missing.png ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"data:image/png;base64,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\"\n\n//# sourceURL=webpack:///./src/images/missing.png?");
 
 /***/ }),
 
@@ -118,7 +129,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./engine */ \"./src/engine.js\");\n/* harmony import */ var _gameobject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameobject */ \"./src/gameobject.js\");\n\r\n\r\n\r\nlet engine = new _engine__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\r\nlet testObj = new _gameobject__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\r\nengine.addObject(testObj);\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./engine */ \"./src/engine.js\");\n/* harmony import */ var _gameobject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameobject */ \"./src/gameobject.js\");\n\r\n\r\n\r\nlet engine = new _engine__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\r\nlet testObj1 = new _gameobject__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\ntestObj1.position = [100, 100];\r\nengine.addObject(testObj1);\n\n//# sourceURL=webpack:///./src/main.js?");
+
+/***/ }),
+
+/***/ "./src/renderable.js":
+/*!***************************!*\
+  !*** ./src/renderable.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Renderable; });\n/* harmony import */ var _images_missing_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/missing.png */ \"./src/images/missing.png\");\n/* harmony import */ var _images_missing_png__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_images_missing_png__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nclass Renderable {\r\n    constructor(image = _images_missing_png__WEBPACK_IMPORTED_MODULE_0___default.a) {\r\n        this.img = new Image();\r\n        this.img.src = image\r\n    }\r\n\r\n    draw(ctx) {\r\n        ctx.drawImage(0, 0, this.img.width, this.img.height);\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/renderable.js?");
 
 /***/ })
 
