@@ -4,13 +4,22 @@ export default class GameObject {
         this.children = [];
     }
 
+    addChild(child) {
+        this.children.push(child);
+    }
+
     draw(ctx) {
-        //ctx.save();
-        //ctx.translate(this.position[0], this.position[1]);
+        ctx.save();
+        ctx.translate(this.position[0], this.position[1]);
 
         ctx.fillStyle = "red";
         ctx.fillRect(0, 0, 50, 50);
 
-        //ctx.restore();
+        this.children.forEach(child => {
+            if(child instanceof GameObject)
+                child.draw(ctx);
+        });
+
+        ctx.restore();
     }
 }
