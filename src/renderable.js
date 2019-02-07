@@ -19,7 +19,7 @@ export default class Renderable {
         let t = new Date().getTime();
         if(t > this.animTime) {
             this.frame ++;
-            this.animTime = t + 100;
+            this.animTime = t + 1000 / this.speed;
         }
         if(this.frame > this.startFrame + this.frameCount) {
             this.frame = this.startFrame;

@@ -6,6 +6,11 @@ export default class GameObject {
         this.children = [];
     }
 
+    translate(x, y) {
+        this.position[0] += x;
+        this.position[1] += y;
+    }
+
     addChild(child) {
         this.children.push(child);
     }
