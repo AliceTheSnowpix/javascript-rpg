@@ -10,11 +10,11 @@ export default class Player extends GameObject {
 
         this.facing = 0;
         this.renderables = [
-            new Renderable(playerIMG, 18, 0, 9, 4, 10),
-            new Renderable(playerIMG, 1, 7, 9, 4, 10),
-            new Renderable(playerIMG, 27, 7, 9, 4, 10),
-            new Renderable(playerIMG, 19, 7, 9, 4, 10),
-            new Renderable(playerIMG, 9, 7, 9, 4, 10)
+            new Renderable(playerIMG, 1, 18, 0, 9, 4, 10),
+            new Renderable(playerIMG, 1, 1, 7, 9, 4, 10),
+            new Renderable(playerIMG, 1, 27, 7, 9, 4, 10),
+            new Renderable(playerIMG, 1, 19, 7, 9, 4, 10),
+            new Renderable(playerIMG, 1, 9, 7, 9, 4, 10)
         ];
     }
 

@@ -1,9 +1,10 @@
 import missingIMG from './images/missing.png';
 
 export default class Renderable {
-    constructor(image = missingIMG, startFrame = 0, frameCount = 0, framesx = 1, framesy = 1, speed = 1) {
+    constructor(image = missingIMG, scale = 1, startFrame = 0, frameCount = 0, framesx = 1, framesy = 1, speed = 1) {
         this.img = new Image();
         this.img.src = image;
+        this.scale = scale;
         this.frame = startFrame;
         this.startFrame = startFrame;
         this.frameCount = frameCount;
@@ -28,6 +29,6 @@ export default class Renderable {
         let posx = (this.frame % this.framesx) * this.subWidth;
         let posy = Math.floor(this.frame / this.framesx) * this.subHeight;
 
-        ctx.drawImage(this.img, posx, posy, this.subWidth, this.subHeight, 0, 0, this.subWidth, this.subHeight);
+        ctx.drawImage(this.img, posx, posy, this.subWidth, this.subHeight, 0, 0, this.subWidth * this.scale, this.subHeight * this.scale);
     }
 }
