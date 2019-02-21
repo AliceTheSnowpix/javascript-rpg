@@ -1,16 +1,16 @@
 import Engine from "./engine";
-import Player from "./player";
-import GameObject from "./gameobject";
-import Renderable from "./renderable";
-import mapIMG from "./images/dungeon.png";
+import Player from "./player"
+import Map from "./map";
+
+import testmap from "./maps/testmap.json"
+import mapTiles from "./images/dungeon_sheet.png";
 
 let engine = new Engine();
 
-let player = new Player(50, 50);
-
-let map = new GameObject();
-map.addChild(new Renderable(mapIMG, 2));
+let map = new Map(testmap, mapTiles);
 engine.addObject(map);
+
+let player = new Player(50, 50);
 
 engine.addObject(player);
 engine.update = (dt) => {
