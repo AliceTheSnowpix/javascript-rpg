@@ -18,11 +18,24 @@ export default class Player extends GameObject {
         ];
     }
 
+    update(engine, dt) {
+        super.update(engine, dt);
+
+        let collider = engine.getCollision(
+            this.position[0] + this.renderables[0].subWidth / 2,
+            this.position[1] + this.renderables[0].subHeight - 10);
+        if(collider !== false) {
+            this.position[0] = this.lastposition[0];
+            this.position[1] = this.lastposition[1];
+        }
+    }
+
     draw(ctx) {
         ctx.save();
         ctx.translate(this.position[0], this.position[1])
         this.renderables[this.facing].draw(ctx);
         ctx.restore();
 
+        super.draw(ctx)
     }
 }
